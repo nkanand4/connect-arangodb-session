@@ -63,6 +63,7 @@ const init = function (connect) {
 
       self.db = arangojs({
         url: options.url,
+        databaseName: options.dbName,
         promise: Q.promise
       });
 
