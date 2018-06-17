@@ -146,6 +146,10 @@ const init = function (connect) {
         self.get.call(self, id, callback);
       });
     }
+    if(!self.collection) {
+      let e = new Error('Error connecting to the db');
+      return self._errorHandler(e, callback);
+    }
 
     self.collection.byExample(self._generateQuery(id), function(error, cursor) {
       if (error) {
